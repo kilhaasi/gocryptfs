@@ -1,0 +1,8 @@
+#!/usr/bin/with-contenv bash
+while [ ! -f "/encrypted/gocryptfs.conf" ]
+do
+ echo "Waiting for gocryptfs.conf to appear..."
+ sleep 1
+done
+
+gocryptfs -fg -passfile /etc/enc-pwd /encrypted /decrypted
